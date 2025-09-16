@@ -5,13 +5,19 @@ import {
 } from "@/components/ui/navigation-menu"
 import Link from "next/link"
 import { ModeToggle } from "./ModeToggle"
+import Image from "next/image";
+
 
 function Navbar() {
   return (
     <nav className="p-3 flex justify-between items-center text-primary bg-secondary">
-        <div className="text-primary">
-            Wonder Academy
-        </div>
+        <Image
+        src="/imgs/logo.jpeg"   
+        alt="Logo"
+        width={60}
+        height={50}
+        className="rounded-full"
+        />
 
         <NavigationMenu>
             <NavigationMenuList>

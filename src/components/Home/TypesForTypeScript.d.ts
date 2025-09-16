@@ -1,4 +1,4 @@
-// # TypeScript interfaces & types
+// components/Home/types.ts
 export interface Course {
   id: number;
   title: string;
