@@ -1,0 +1,1 @@
+// Helper functions if functions used more
