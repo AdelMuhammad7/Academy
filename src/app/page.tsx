@@ -1,7 +1,6 @@
 "use client";
 
 import Hero from "@/components/Home/HeroSection";
-import HomePage from "@/components/Home/HomePage";
 import StatsSection from "@/components/Home/StatsSection";
 export default function Home() {
 
@@ -14,7 +13,6 @@ export default function Home() {
     <main className="text-primary">
       <Hero onNavigate={handleNavigate} />
       <StatsSection />
-      {/* <HomePage /> */}
     </main>
   );
 }

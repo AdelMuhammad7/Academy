@@ -2,6 +2,7 @@
 import { getAllAdmins } from '@/slices/adminSlice'
 import { getAllExams } from '@/slices/examSlice'
 import { getAllLessons } from '@/slices/lessonSlice'
+import { setTableData } from '@/slices/tableSlice'
 import { getAllUsers } from '@/slices/userSlice'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import React, { useEffect } from 'react'
@@ -13,7 +14,10 @@ function TotalData() {
     const {userData } = useAppSelector((state)=> state.user)
     const {lessonData } = useAppSelector((state)=> state.lesson)
     const {examData } = useAppSelector((state)=> state.exam)
+    const {user } = useAppSelector((state)=> state.auth)
 
+  console.log(user)
+  
     useEffect(()=> {
         dispatch(getAllAdmins())
         dispatch(getAllUsers())
@@ -29,26 +33,39 @@ function TotalData() {
     return <p className="text-center py-4 text-red-500">⚠ {String(error)}</p>
   }
 
-    console.log(examData)
+  function showData(state: string) {
+    if (state === "admin") {
+      dispatch(setTableData(adminData))
+    } else if (state === "user") {
+      dispatch(setTableData(userData))
+    } else if (state === "course") {
+      dispatch(setTableData(lessonData))
+    } else if (state === "exam") {
+      dispatch(setTableData(examData))
+    }
+
+  
+    
+  }
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="p-6 bg-white rounded-xl shadow-md border">
+        <div onClick={()=> showData("admin")} className="p-6 bg-white rounded-xl shadow-md border">
             <p className="text-gray-500 text-sm">إجمالي المشرفين</p>
             <p className="text-2xl font-bold text-blue-600"> {adminData?.length} </p>
         </div>
 
-        <div className="p-6 bg-white rounded-xl shadow-md border">
+        <div onClick={()=> showData("user")} className="p-6 bg-white rounded-xl shadow-md border">
             <p className="text-gray-500 text-sm">إجمالي الطلاب</p>
             <p className="text-2xl font-bold text-green-600"> {userData?.length} </p>
         </div>
 
-        <div className="p-6 bg-white rounded-xl shadow-md border">
+        <div onClick={()=> showData("course")} className="p-6 bg-white rounded-xl shadow-md border">
             <p className="text-gray-500 text-sm">إجمالي الكورسات</p>
             <p className="text-2xl font-bold text-purple-600"> {lessonData?.length} </p>
         </div>
 
-        <div className="p-6 bg-white rounded-xl shadow-md border">
+        <div onClick={()=> showData("exam")} className="p-6 bg-white rounded-xl shadow-md border">
             <p className="text-gray-500 text-sm">الامتحانات</p>
             <p className="text-2xl font-bold text-red-600"> {examData?.length} </p>
         </div>

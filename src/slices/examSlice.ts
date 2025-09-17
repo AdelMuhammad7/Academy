@@ -1,13 +1,20 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios, { AxiosError } from "axios";
 import { API_BASE_URL } from "../../apiConfig";
+import { getCookie } from "cookies-next";
 
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNfYWRtaW5AZ21haWwuY29tIiwiX2lkIjoiNjg1ODkxN2EwMTM2ZWFiMzA1YTMzMGYwIiwiaWF0IjoxNzU4MDMwNDU5LCJleHAiOjE3NTgxMTY4NTl9.fSpDEBCha5qz7X5qLcA-JmGXzCgZYJdbVievgXmuDeQ"
+
+
+
+
 
 export const getAllExams = createAsyncThunk(
   "admin/getAllExams",
   async (_, thunkAPI) => {
     try {
+
+      const token = getCookie("token") as string | undefined;
+      
       const res = await axios.get(`${API_BASE_URL}/exam`, {
         headers: {
           token: token, // 👈 نفس اللي موجود في الـ curl

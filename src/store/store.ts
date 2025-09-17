@@ -4,6 +4,7 @@ import adminReducer from "../slices/adminSlice";
 import userReducer from "../slices/userSlice";
 import lessonReducer from "../slices/lessonSlice";
 import examReducer from "../slices/examSlice";
+import tableDataReducer from "../slices/tableSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     user: userReducer,
     lesson: lessonReducer,
     exam: examReducer,
+    tableData: tableDataReducer,
   },
 });
 

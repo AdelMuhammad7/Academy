@@ -23,3 +23,17 @@ export interface User {
   error: string | null;   // 👈 تعديل
   fromPageA: boolean;
 }
+
+export interface TableData {
+  classLevel: string,
+  createdAt: string ,
+  email: string,
+  fullName: string,
+  isVerified: boolean,
+  phoneNumber: number,
+  role: string
+}
+
+export interface Table {
+  tableData: TableData[]
+}

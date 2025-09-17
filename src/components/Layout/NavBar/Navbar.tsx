@@ -7,16 +7,18 @@ import Link from "next/link"
 import { ModeToggle } from "./ModeToggle"
 import Image from "next/image";
 
+import img from "../../../../public/imgs/logo.jpeg"
+
 
 function Navbar() {
   return (
     <nav className="p-3 flex justify-between items-center text-primary bg-secondary">
         <Image
-        src="/imgs/logo.jpeg"   
+        src={img}  
         alt="Logo"
         width={60}
         height={50}
-        className="rounded-full"
+        className="rounded-full w-auto h-auto"
         />
 
         <NavigationMenu>
