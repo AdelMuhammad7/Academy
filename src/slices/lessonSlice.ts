@@ -1,15 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios, { AxiosError } from "axios";
 import { API_BASE_URL } from "../../apiConfig";
-import { Admin } from "@/types/adminTypes";
+
 
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNfYWRtaW5AZ21haWwuY29tIiwiX2lkIjoiNjg1ODkxN2EwMTM2ZWFiMzA1YTMzMGYwIiwiaWF0IjoxNzU4MDMwNDU5LCJleHAiOjE3NTgxMTY4NTl9.fSpDEBCha5qz7X5qLcA-JmGXzCgZYJdbVievgXmuDeQ"
 
-export const getAllAdmins = createAsyncThunk(
-  "admin/getAllAdmins",
+export const getAllLessons = createAsyncThunk(
+  "lesson/getAllLessons",
   async (_, thunkAPI) => {
     try {
-      const res = await axios.get(`${API_BASE_URL}/admin/all-admin`, {
+      const res = await axios.get(`${API_BASE_URL}/lesson/?isPaid=true&sortBy=scheduledDate&sortOrder=asc&scheduledAfter=2025-07-01`, {
         headers: {
           token: token, // 👈 نفس اللي موجود في الـ curl
         },
@@ -26,8 +26,8 @@ export const getAllAdmins = createAsyncThunk(
 
 
 
-const initialState : Admin = {
-  adminData: [],
+const initialState  = {
+  lessonData: [],
   loading: false,
   error: null,
   fromPageA: false,
@@ -46,16 +46,16 @@ const adminSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getAllAdmins.pending, (state) => {
+      .addCase(getAllLessons.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(getAllAdmins.fulfilled, (state , action) => {
+      .addCase(getAllLessons.fulfilled, (state , action) => {
         state.loading = false;
         state.error = null;
-        state.adminData = action.payload
+        state.lessonData = action.payload
       })
-      .addCase(getAllAdmins.rejected, (state, action) => {
+      .addCase(getAllLessons.rejected, (state, action) => {
         state.loading = false;
         state.error = (action.payload as string) || "خطأ غير معروف"; // 👈 أمان أكتر
       });

@@ -1,15 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios, { AxiosError } from "axios";
 import { API_BASE_URL } from "../../apiConfig";
-import { Admin } from "@/types/adminTypes";
 
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNfYWRtaW5AZ21haWwuY29tIiwiX2lkIjoiNjg1ODkxN2EwMTM2ZWFiMzA1YTMzMGYwIiwiaWF0IjoxNzU4MDMwNDU5LCJleHAiOjE3NTgxMTY4NTl9.fSpDEBCha5qz7X5qLcA-JmGXzCgZYJdbVievgXmuDeQ"
 
-export const getAllAdmins = createAsyncThunk(
-  "admin/getAllAdmins",
+export const getAllExams = createAsyncThunk(
+  "admin/getAllExams",
   async (_, thunkAPI) => {
     try {
-      const res = await axios.get(`${API_BASE_URL}/admin/all-admin`, {
+      const res = await axios.get(`${API_BASE_URL}/exam`, {
         headers: {
           token: token, // 👈 نفس اللي موجود في الـ curl
         },
@@ -26,15 +25,15 @@ export const getAllAdmins = createAsyncThunk(
 
 
 
-const initialState : Admin = {
-  adminData: [],
+const initialState  = {
+  examData: [],
   loading: false,
   error: null,
   fromPageA: false,
 };
 
-const adminSlice = createSlice({
-  name: "admin",
+const examSlice = createSlice({
+  name: "exam",
   initialState,
   reducers: {
     allowAccess(state) {
@@ -46,16 +45,16 @@ const adminSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getAllAdmins.pending, (state) => {
+      .addCase(getAllExams.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(getAllAdmins.fulfilled, (state , action) => {
+      .addCase(getAllExams.fulfilled, (state , action) => {
         state.loading = false;
         state.error = null;
-        state.adminData = action.payload
+        state.examData = action.payload
       })
-      .addCase(getAllAdmins.rejected, (state, action) => {
+      .addCase(getAllExams.rejected, (state, action) => {
         state.loading = false;
         state.error = (action.payload as string) || "خطأ غير معروف"; // 👈 أمان أكتر
       });
@@ -63,5 +62,5 @@ const adminSlice = createSlice({
 });
 
 
-export const { allowAccess , resetAccess } = adminSlice.actions;
-export default adminSlice.reducer;
+export const { allowAccess , resetAccess } = examSlice.actions;
+export default examSlice.reducer;
