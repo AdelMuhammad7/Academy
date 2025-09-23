@@ -2,6 +2,8 @@
 
 import Hero from "@/components/Home/HeroSection";
 import StatsSection from "@/components/Home/StatsSection";
+import TestimonialsSection from "@/components/Home/TestimonialsSection";
+
 export default function Home() {
 
   const handleNavigate = (section: "home" | "courses" | "about") => {
@@ -13,6 +15,7 @@ export default function Home() {
     <main className="text-primary">
       <Hero onNavigate={handleNavigate} />
       <StatsSection />
+            <TestimonialsSection />
     </main>
   );
 }

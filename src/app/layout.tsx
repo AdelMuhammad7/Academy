@@ -1,9 +1,11 @@
+
 import type { Metadata } from "next";
 import { Providers } from "../store/Provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import ClientLayoutWrapper from "./ClientLayoutWrapper"
 import { Toaster } from "@/components/ui/sonner"
+import Loading from "@/components/Loading/Loading";
 
 
 export const metadata: Metadata = {
@@ -18,7 +20,8 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}) {
+  }) {
+  
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body>
