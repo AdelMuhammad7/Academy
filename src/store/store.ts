@@ -3,6 +3,10 @@ import authReducer from "../slices/authSlice";
 import adminReducer from "../slices/adminSlice";
 // import dashboardReducer from "./dashboardSlice";
 import educationalReducer from "./educationalSlice";
+import userReducer from "../slices/userSlice";
+import lessonReducer from "../slices/lessonSlice";
+import examReducer from "../slices/examSlice";
+import tableDataReducer from "../slices/tableSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +16,10 @@ export const store = configureStore({
     educational: educationalReducer,
 
 
+    user: userReducer,
+    lesson: lessonReducer,
+    exam: examReducer,
+    tableData: tableDataReducer,
   },
 });
 
