@@ -3,6 +3,7 @@ import { Providers } from "../store/Provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import ClientLayoutWrapper from "./ClientLayoutWrapper"
+import { Toaster } from "@/components/ui/sonner"
 
 
 export const metadata: Metadata = {
@@ -38,6 +39,7 @@ export default function RootLayout({
             ]}
           >
             <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
+            <Toaster />
           </ThemeProvider>
         </Providers>
       </body>

@@ -41,16 +41,19 @@ export default function LoginPage() {
     },
   });
 
-  function onSubmit(values: LoginSchema) {
-    dispatch(loginUser(values));
-  }
+ async function onSubmit(values: LoginSchema) {
+  try {
+    const res = await dispatch(loginUser(values)).unwrap(); 
 
-  // ✅ إعادة التوجيه بعد تسجيل الدخول
-  useEffect(() => {
-    if (isLoggedIn) {
-      router.push("/"); // redirect to home
+    if (res?.token) {
+      router.push("/"); // تسجيل دخول ناجح → روح على الصفحة الرئيسية
+    } else {
+      console.log("Login failed");
     }
-  }, [isLoggedIn, router]);
+  } catch (error) {
+    console.log("Login error:", error); // هيطبع الـ rejectWithValue
+  }
+}
 
   return (
     <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow">

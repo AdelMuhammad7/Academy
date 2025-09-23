@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Navbar from "@/components/Layout/NavBar/Navbar";
-import Footer from "@/components/Layout/Footer";
+import Footer from "@/components/Layout/Footer/Footer";
 
 
 export default function ClientLayoutWrapper({
