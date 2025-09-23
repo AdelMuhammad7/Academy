@@ -42,31 +42,7 @@ const { progressData, subjectData, scheduleData, assignments } = useSelector(
   );
   
   return (
-  <div className="flex-1 overflow-auto">
-        {/* الشريط العلوي */}
-        <header className="shadow-sm p-4 flex justify-between items-center">
-          <div className="flex items-center  rounded-lg px-3 py-2 w-96">
-            <Search size={18} className=" ml-2" />
-            <input
-              type="text"
-              placeholder="ابحث عن مواد، واجبات، دورات..."
-              className="bg-transparent outline-none w-full text-right"
-            />
-          </div>
-          <div className="flex items-center space-x-4">
-            <button className="p-2 rounded-full">
-              <Bell size={20} className="" />
-            </button>
-            <div className="flex items-center space-x-2 cursor-pointer">
-              <div className="w-8 h-8 rounded-full flex items-center justify-center">
-                <User size={16} className="text-blue-600" />
-              </div>
-              <span className="text-sm font-medium">الطالب</span>
-              <ChevronDown size={16} />
-            </div>
-          </div>
-        </header>
-
+  <div className="flex-1 overflow-auto border border-border">
         {/* المحتوى */}
         <main className="p-6">
           {activeTab === 'dashboard' && (

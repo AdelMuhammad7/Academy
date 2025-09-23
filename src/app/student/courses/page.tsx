@@ -377,13 +377,11 @@ export default function CoursesComponent() {
           >
             <h3 className="text-xl font-semibold  mb-2">{course.title}</h3>
             <div className="flex items-center justify-between mb-3">
-              <span className="text-sm">المحاضر: {course.instructor}</span>
-              <span className="text-sm ">{course.duration}</span>
             </div>
 
 
             <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-600">{course.lessons} درس</span>
+              <span className="text-sm text-gray-600">ابدا الان</span>
               <button className="bg-primary text-secondary h-8 px-3 py-1 rounded text-sm transition-colors">
                 الذهاب للتعلم
               </button>

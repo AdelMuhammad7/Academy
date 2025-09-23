@@ -1,6 +1,6 @@
 "use client";
 
-import { BarChart3, BookOpen, Calendar, ClipboardList, Home } from "lucide-react";
+import { BookOpen, Calendar, ClipboardList, Home } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -11,7 +11,6 @@ function Aside() {
     { href: "/student/dashboard", label: "لوحة التحكم", icon: Home },
     { href: "/student/courses", label: "المقررات", icon: BookOpen },
     { href: "/student/schedule", label: "الامتحانات", icon: Calendar },
-    { href: "/student/progress", label: "التقدم", icon: BarChart3 },
     { href: "/student/assignments", label: "الواجبات", icon: ClipboardList },
   ];
 
