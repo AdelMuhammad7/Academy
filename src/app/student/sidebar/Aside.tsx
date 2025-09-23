@@ -26,7 +26,7 @@ function Aside() {
               href={href}
               className={`flex items-center p-3 rounded-lg mb-2 cursor-pointer transition-colors ${
                 active
-                  ? "bg-blue-100 text-blue-800"
+                  ? "text-primary"
                   : "text-gray-600 hover:bg-gray-100"
               }`}
             >
