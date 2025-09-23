@@ -1,8 +1,15 @@
 "use client";
 
+
 import React from "react";
 
+
 const StatsSection: React.FC = () => {
+
+
+
+
+
   return (
     <section className="relative py-16 border-t border-gray-300 overflow-hidden">
       {/* Animated Background Elements */}
