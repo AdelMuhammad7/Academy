@@ -6,7 +6,13 @@ import "./globals.css";
 import ClientLayoutWrapper from "./ClientLayoutWrapper"
 import { Toaster } from "@/components/ui/sonner"
 import Loading from "@/components/Loading/Loading";
+import { Cairo } from "next/font/google";
 
+const cairo = Cairo({ 
+  subsets: ["arabic", "latin"],
+  weight: ["400", "600", "700", "800"],
+  variable: "--font-cairo"
+});
 
 export const metadata: Metadata = {
   title: "Wonder Academy",
@@ -24,7 +30,7 @@ export default function RootLayout({
   
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
-      <body>
+      <body className={cairo.variable}>
         <Providers>
           <ThemeProvider
             attribute="class"
